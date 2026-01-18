@@ -8,7 +8,6 @@ from dotenv import load_dotenv
 import time
 import json
 import random
-from IPython.display import display, HTML
 from newspaper import Article
 import requests
 import re
