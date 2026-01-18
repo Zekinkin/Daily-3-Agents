@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "topic_name": "告诉朋友实情",
+    "part2_content": "Describe a time when you told your friend an important truth You should say: Who your friend is What the truth is What you friend’s reaction was And explain why you think it was important to tell your friend the truth",
+    "part3_questions": [
+      "Do you think we should tell the truth at all times?",
+      "How do you know when others are telling lies?",
+      "Sometimes people should tell lies. Do you agree?",
+      "Do you think it’s important to win a game or follow the rules in sports?"
+    ]
+  },
+  {
+    "id": 2,
+    "topic_name": "钦佩的有创造力之人",
+    "part2_content": "Describe a creative person (e.g. an artist, a musician, etc.) you admire You should say: Who he/she is How you knew him/her What his/her greatest achievement is And explain why you think he/she is creative",
+    "part3_questions": [
+      "Do you think children should learn to play musical instruments?",
+      "How do artists acquire inspiration?",
+      "Do you think pictures and videos in news reports are important? What can we do to help children keep creative?",
+      "What can we do to help older children learn music?",
+      "What kind of jobs require creativity?"
+    ]
+  },
+  {
+    "id": 3,
+    "topic_name": "精力充沛的人",
+    "part2_content": "Describe an energetic person that you know\nYou should say:\nWho the person is\nHow you knew this person\nWhy you think this person is energetic\nHow you feel about this person",
+    "part3_questions": [
+      "What kinds of jobs need a lot physical work?",
+      "What’s the difference between the payment for physical work and that for mental work?",
+      "Can physical workers receive higher salaries in the future?",
+      "Do you think machines could replace human workers in the future?",
+      "Do you think you are an energetic person?",
+      "Do you think there was more physical labor in the past than there is now?"
+    ]
+  },
+  {
+    "id": 4,
+    "topic_name": "想要共度时光的人",
+    "part2_content": "Describe someone you really like to spend time with You should say Who this person is How you knew him/her What you usually do together And explain why you like to spend time with him/her",
+    "part3_questions": [
+      "What kinds of people are easy to get along with?",
+      "How do leaders get along with their subordinates?",
+      "Do people have time for themselves nowadays?",
+      "Do you like talking with older people? Why?",
+      "Do you think it's important to spend some time alone?",
+      "Do you think it is important for us to get along with different kinds of people?"
+    ]
+  },
+  {
+    "id": 5,
+    "topic_name": "喜欢的歌手",
+    "part2_content": "Describe a singer you like\nYou should say:\nWho he/she is\nWhat genre his/her music belongs to\nWhen/where you listen to his/her music/songs\nAnd explain why you like his/her music",
+    "part3_questions": [
+      "What kind of music do people like at different ages?",
+      "What kind of music is popular in China now and what kind will be in the future?",
+      "Do Chinese parents require their children to learn to play musical instruments?",
+      "Why do some people like to listen to live music while others prefer CDs?",
+      "Can anyone learn how to sing?",
+      "What should the government do to help people with musical talent?"
+    ]
+  },
+  {
+    "id": 6,
+    "topic_name": "环保人士",
+    "part2_content": "Describe a person who helps to protect the environment You should say: Who the person is When this person does this What has the person done And explain why this person does this",
+    "part3_questions": [
+      "Why can recycling help the environment?",
+      "What have people done to damage the environment?",
+      "Do you think technology can improve environment-related problems?",
+      "Is is important to teach students environment protection at school?"
+    ]
+  },
+  {
+    "id": 7,
+    "topic_name": "需要搜索信息的经历",
+    "part2_content": "Describe a time when you needed to search for information You should say: What information you needed to search for When you searched for it Where you searched for it And explain why you needed to search for it",
+    "part3_questions": [
+      "How can people search for information now?",
+      "What information can people get from television?",
+      "Do you think libraries are still important in the digital age?",
+      "Does the development of the Internet have any impact on some disadvantaged people?",
+      "How do people identify reliable information on the Internet?",
+      "Is it good if people could have more access to information in the future?"
+    ]
+  },
+  {
+    "id": 8,
+    "topic_name": "看见很多塑料垃圾的经历",
+    "part2_content": "Describe a time when you saw a lot of plastic waste(e.g. in a park, on the beach, etc.) You should say: Where and when you saw the plastic waste Why there were a lot of plastic waste What you did after you saw them And explain what your thoughts were about this",
+    "part3_questions": [
+      "Do you think we should use plastic products?",
+      "How can we reduce our use of plastic?",
+      "What kinds of plastic waste are often seen in your country?",
+      "Why do people like to use plastic products?",
+      "What can the government do to reduce plastic pollution?",
+      "Do you think we can do without plastic altogether in the future?"
+    ]
+  },
+  {
+    "id": 9,
+    "topic_name": "不愉快的购物经历",
+    "part2_content": "Describe a problem you had while shopping online or in a store You should say: When it happened What you bought What problem you had And explain how you felt about the experience",
+    "part3_questions": [
+      "What kind of customer service do you think is good?",
+      "What are the differences between shopping online and in-store?",
+      "What problems do customers often have while shopping?",
+      "What do you think customers should do when there are problems with products bought online?",
+      "Can customer complaints help improve product quality?",
+      "What do you think of people complaining when they buy poor quality goods at a low price?"
+    ]
+  },
+  {
+    "id": 10,
+    "topic_name": "开学第一天",
+    "part2_content": "Describe your first day at school that you remember\nYou should say:\nWhere the school was\nHow you went there\nWhat happened that day\nAnd how you felt on that day",
+    "part3_questions": [
+      "What would parents prepare when their kids go to school on the first day?",
+      "How do children socialize with each other?",
+      "Is socialization important for children?",
+      "What are the reasons for job change?",
+      "Are big companies better than small companies? Why?",
+      "What are the advantages and disadvantages coming along with changing jobs?"
+    ]
+  },
+  {
+    "id": 11,
+    "topic_name": "决心等待的经历",
+    "part2_content": "Describe a time you made a decision to wait for something You should say:\nWhen it happened\nWhat you waited for\nWhy you made the decision\nAnd explain how you felt while waiting",
+    "part3_questions": [
+      "What do people in your country often do while waiting?",
+      "Why do some people like a slow-paced life?",
+      "Is being patient good for people? Why?",
+      "Are people less patient now than people in the past? Why? Why do children lack patience?",
+      "How can people become more patient?"
+    ]
+  },
+  {
+    "id": 12,
+    "topic_name": "激励你做有趣事情的人",
+    "part2_content": "Describe a person who inspired you to do something interesting You should say: Who he/she is How you knew him/her What interesting thing you did And explain how he/she inspired you to do it",
+    "part3_questions": [
+      "What qualities make someone a role model?",
+      "Why should children learn from role models?",
+      "Who can influence children more, teachers or parents?",
+      "What kind of international news inspires people?",
+      "Besides parents and teachers, who else can motivate children?",
+      "Can online teaching motivate students to learn? How?"
+    ]
+  },
+  {
+    "id": 13,
+    "topic_name": "聊得来的有趣老人",
+    "part2_content": "Describe an old person who has an interesting life and you enjoy talking to him/her\nYou should say:\nWho this person is\nWhere he/she lives\nWhat his/her life is like\nWhat you like to talk about with him/her\nAnd explain why you enjoy talking to him/her",
+    "part3_questions": [
+      "Should companies employ older workers?",
+      "What do you think older people can contribute at work?",
+      "Why do governments make retirement policies?",
+      "When do you think is the best time to retire?",
+      "Do you think people should spend more time with their grandparents?",
+      "Is it beneficial to live with elderly people?"
+    ]
+  },
+  {
+    "id": 14,
+    "topic_name": "想要一起学习/工作的人",
+    "part2_content": "Describe a person you have met who you want to work/study with You should say: Who this person is How you met this person How long you have known him/her And explain why you want to work/study with him/her",
+    "part3_questions": [
+      "Why should children be kind to their classmates? Can children choose their deskmates?",
+      "What matters most about a colleague's personality? Are good colleagues important at work?",
+      "What kind of people are popular at work?",
+      "Are knowledgeable people popular at work?"
+    ]
+  },
+  {
+    "id": 15,
+    "topic_name": "聪明的人",
+    "part2_content": "Describe an intelligent person you know\nYou should say:\nWho this person is\nHow you knew this person\nWhat this person does\nAnd explain why you think this person is intelligent",
+    "part3_questions": [
+      "Who do you think plays a more important role in a child's development, teachers or parents?",
+      "Are smart people happier than others?",
+      "Do you think smart people tend to be selfish?",
+      "Why are some children more intelligent than others?",
+      "Do you think it is necessary for managers to share their experience with their subordinates?",
+      "Do you think an intelligence test is a must in company recruitment?"
+    ]
+  },
+  {
+    "id": 16,
+    "topic_name": "忘记/错过约定的经历",
+    "part2_content": "Describe a time when you forgot/missed an appointment You should say: What the appointment was for, Who you made it with, Why you forgot/missed it, And explain how you felt about the experience",
+    "part3_questions": [
+      "Is punctuality important to people?",
+      "What do you think is a good way to record things? Why?",
+      "Which is more important, a work-related appointment or an appointment with a friend? Why?",
+      "If someone doesn't really like whom they are going to meet, they may deliberately miss their appointment. Is that true? Why?",
+      "Do you think people should remember family history?",
+      "How do people who are busy remember things they need to do?"
+    ]
+  },
+  {
+    "id": 17,
+    "topic_name": "见到空中之物的经历",
+    "part2_content": "Describe a time when you saw something in the sky (e.g. flying kites, birds, sunset, etc.) You should say: What you saw Where/when you saw it/them How long you saw it/them And explain how you felt about the experience",
+    "part3_questions": [
+      "Would people be willing to get up early to watch and enjoy the sunrise?",
+      "When would people watch the sky?",
+      "Do many people pay attention to the shapes of stars?",
+      "What do people usually see in the sky in the daytime?",
+      "What are the differences between things people see in the sky in the daytime and at night?",
+      "Why do some people like to watch stars at night?"
+    ]
+  },
+  {
+    "id": 18,
+    "topic_name": "成功克服困难的经历",
+    "part2_content": "Describe a difficult thing you did and succeeded You should say: What it was How you overcame the difficulties Whether you got help And explain how you felt after you succeeded",
+    "part3_questions": [
+      "Should people set goals for themselves?",
+      "How would you define success?",
+      "How can we judge whether young people are successful nowadays? Are successful people often lonely?",
+      "What kinds of success can students achieve at school?",
+      "Should students be proud of their success?"
+    ]
+  },
+  {
+    "id": 19,
+    "topic_name": "因做某事被夸赞的经历",
+    "part2_content": "Describe a time when you were praised for something you did You should say: When it happened What you did Who praised you How you felt about the experience",
+    "part3_questions": [
+      "When do parents usually praise their children?",
+      "Do you think people should always point out and correct others' mistakes?"
+    ]
+  },
+  {
+    "id": 20,
+    "topic_name": "收到钱当礼物的经历",
+    "part2_content": "Describe a time when you received money as a gift You should say: When it happened Who gave you money Why he/she gave you money And explain how you used the money",
+    "part3_questions": [
+      "Why do people rarely use cash now?",
+      "When do children begin to comprehend the value of money?",
+      "Should parents reward children with money?",
+      "Is it good and necessary to teach children to save money?",
+      "What are the advantages and disadvantages of using credit cards?",
+      "Do you think it's a good thing that more people are using digital payment?"
+    ]
+  },
+  {
+    "id": 21,
+    "topic_name": "童年的朋友",
+    "part2_content": "Describe a friend from your childhood\nYou should say:\nWho he/she is\nWhere and how you met each other\nWhat you often did together\nAnd explain what made you like him/her",
+    "part3_questions": [
+      "Do you still keep in touch with your friends from childhood? Why or why not?",
+      "How important is childhood friendship to children?",
+      "What do you think of communicating via social media?",
+      "Do you think online communication through social media will replace face-to-face communication?",
+      "What's the difference between having younger friends and older friends?",
+      "Has technology changed people's friendships? How?"
+    ]
+  }
+]

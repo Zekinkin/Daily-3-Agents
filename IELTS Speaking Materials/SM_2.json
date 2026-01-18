@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "topic_name": "钦佩的成功运动员",
+    "part2_content": "Describe a successful sportsperson you admire\nYou should say:\nWho he/she is\nWhat you know about him/her\nWhat he/she is like in real life\nWhat achievement he/she has made\nAnd explain why you admire him/her",
+    "part3_questions": [
+      "Should students have physical education and do sports at school? What qualities should an athlete have?",
+      "Is talent important in sports?",
+      "Is it easy to identify children's talents?",
+      "What is the most popular sport in your country?",
+      "Why are there so few top athletes?"
+    ]
+  },
+  {
+    "id": 2,
+    "topic_name": "感兴趣且想深入学习的科学领域/学科",
+    "part2_content": "Describe an area/subject of science (biology, robotics, etc.) that you are interested in and would like to learn more about\nYou should say:\nWhich area/subject it is\nWhen and where you came to know this area/subject\nHow you get information about this area/subject\nAnd explain why you are interested in this area/subject",
+    "part3_questions": [
+      "Why do some children not like learning science at school?",
+      "Is it important to study science at school?",
+      "Which science subject is the most important for children to learn?",
+      "Should people continue to study science after graduating from school?",
+      "How do you get to know about scientific news?",
+      "Should scientists explain the research process to the public?"
+    ]
+  },
+  {
+    "id": 3,
+    "topic_name": "在一群人面前演讲的经历",
+    "part2_content": "Describe a talk you gave to a group of people\nYou should say:\nWho you gave the talk to\nWhat the talk was about\nWhy you gave the talk\nAnd explain how you felt about the talk",
+    "part3_questions": [
+      "What benefits does the internet bring to communication?",
+      "Which one is better, being a communicator or a listener?",
+      "What qualities does a person need to have to be a good communicator?",
+      "What qualities do people need to speak in public?",
+      "How important is it to be a good listener when communicating?",
+      "What kinds of people often give speeches?"
+    ]
+  },
+  {
+    "id": 4,
+    "topic_name": "想从朋友身上学的好习惯",
+    "part2_content": "Describe a good habit your friend has and you want to develop You should say: Who your friend is What habit he/she has When you noticed this habit And explain how you want to develop this habit",
+    "part3_questions": [
+      "What habits should children have?",
+      "What should parents do to help their children develop good habits?",
+      "What influences do children with bad habits have on other children?",
+      "Why do some bad habits change when people get older?"
+    ]
+  },
+  {
+    "id": 5,
+    "topic_name": "在社交媒体上发现趣事的经历",
+    "part2_content": "Describe a time you saw something interesting on social media You should say: When it was Where you saw it What you saw And explain why you think it was interesting",
+    "part3_questions": [
+      "Why do people like to use social media?",
+      "What kinds of things are popular on social media?",
+      "What are the advantages and disadvantages of using social media?",
+      "What do you think of making friends on social network?"
+    ]
+  },
+  {
+    "id": 6,
+    "topic_name": "想提升的天赋",
+    "part2_content": "Describe a natural talent (sports, music, etc.) you want to improve You should say: What it is When you discovered it How you want to improve it And how you feel about it",
+    "part3_questions": [
+      "Do you think artists with talents should focus on their talents?",
+      "Is it possible for us to know whether children who are 3 or 4 years old will become musicians and painters when they grow up?",
+      "Why do people like to watch talent shows?",
+      "Do you think it is more interesting to watch famous people's or ordinary people's shows?"
+    ]
+  },
+  {
+    "id": 7,
+    "topic_name": "童年时期喜欢的玩具",
+    "part2_content": "Describe a toy you liked in your childhood\nYou should say:\nWhat kind of toy it is\nWhen you received it\nHow you played it\nAnd how you felt about it",
+    "part3_questions": [
+      "How do advertisements influence children?",
+      "Should advertising aimed at kids be prohibited?",
+      "What's the difference between the toys kids play now and those they played in the past?",
+      "Do you think parents should buy more toys for their kids or spend more time with them?",
+      "What's the difference between the toys boys play with and girls play with?",
+      "What are the advantages and disadvantages of modern toys?"
+    ]
+  },
+  {
+    "id": 8,
+    "topic_name": "第一次说外语的经历",
+    "part2_content": "Describe the time when you first talked in a foreign language You should say: Where you were Who you were with What you talked about And explain how you felt about it",
+    "part3_questions": [
+      "At what age should children start learning a foreign language?",
+      "Which skill is more important, speaking or writing?",
+      "Does a person still need to learn other languages, if he or she is good at English? Do you think minority languages will disappear?"
+    ]
+  },
+  {
+    "id": 9,
+    "topic_name": "读过且觉得有用的书",
+    "part2_content": "Describe a book you read that you found useful\nYou should say:\nWhat it is\nWhen you read it\nWhy you think it is useful\nAnd explain how you felt about it",
+    "part3_questions": [
+      "What are the types of books that young people like to read?",
+      "What's the difference between the reading habits of old people and young people?",
+      "What's the difference between paper books and e-books?",
+      "Some people say that it is easier for children who start reading from a young age to succeed. Do you agree?"
+    ]
+  },
+  {
+    "id": 10,
+    "topic_name": "以后想尝试的水上运动",
+    "part2_content": "Describe a water sport you would like to try in the future You should say: What it is Where you would like to try it Whether it is difficult And explain why you would like to try it",
+    "part3_questions": [
+      "Do you think it is good to teach swimming in school?",
+      "What kinds of water sports are popular nowadays?",
+      "Why do people like to live near water?",
+      "What are the advantages of water transportation?",
+      "What do you think of the people who waste water?",
+      "What are the characteristics of goods transported by water?"
+    ]
+  }
+]

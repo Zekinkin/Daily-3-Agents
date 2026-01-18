@@ -1,0 +1,217 @@
+[
+  {
+    "id": 1,
+    "topic_name": "朋友间的有趣讨论",
+    "part2_content": "Describe an interesting discussion you had with your friend You should say: What the discussion was about What opinions you and your friend had Why you think the discussion was interesting And how you felt about it",
+    "part3_questions": [
+      "When do children normally form their own views?",
+      "Do children have strong opinions?",
+      "Should parents request their kids to obey them?",
+      "In what industries do you think communication is a necessary skill?",
+      "Should parents consider their children's opinions on everything? why?",
+      "Why do some young people refuse to communicate with others?"
+    ]
+  },
+  {
+    "id": 2,
+    "topic_name": "祖父母工作",
+    "part2_content": "Describe your grandpa/ grandma’s job\nYou should say:\nWhat job he/she does\nWhat you know about his/her job\nWhether it is his/her only job\nAnd explain how you feel about his/her job",
+    "part3_questions": [
+      "What jobs do you think are rather difficult?",
+      "What qualities do people need to do difficult jobs?",
+      "Do you think difficult jobs deserve higher salaries?",
+      "What are the differences between difficult jobs and easy jobs?",
+      "Do you think robots can replace human beings in every industry?",
+      "What role can robots play in the car manufacturing process?"
+    ]
+  },
+  {
+    "id": 3,
+    "topic_name": "对某人许下的承诺",
+    "part2_content": "Describe a time you made a promise to someone\nYou should say\nWhat the promise was\nTo whom you made it\nWhether it was easy or difficult to keep\nAnd explain why you made it",
+    "part3_questions": [
+      "Why do some people fail to keep their promises?",
+      "Do children keep their promises?",
+      "Do parents in China make promise to their children?",
+      "What kinds of promises do people often make?",
+      "Do you often keep your promises?",
+      "Is is useful to write down promises?"
+    ]
+  },
+  {
+    "id": 4,
+    "topic_name": "重要的决定",
+    "part2_content": "Describe an important decision that you made\nYou should say:\nWhat the decision was\nHow you made your decision\nWhat the results of the decision were\nAnd explain why it was important",
+    "part3_questions": [
+      "Do you think children sometimes have to make important decisions?",
+      "What important decisions do teenagers need to make after graduation?",
+      "Who can children turn to for help when making a decision?",
+      "Do you think advertisements can influence our decisions when shopping?",
+      "Do you think the influence of advertising is good?",
+      "How do people usually make important decisions?"
+    ]
+  },
+  {
+    "id": 5,
+    "topic_name": "难用的科技产品",
+    "part2_content": "Describe a piece of technology you own that you feel is difficult to use You should say: When you got it What you got it for How often you use it And explain how you feel about it",
+    "part3_questions": [
+      "What technology do people currently use?",
+      "Why do big companies introduce new products frequently?",
+      "Why are people so keen on buying iPhones even though they haven't changed much from one iPhone to the next?",
+      "Why do technology companies keep upgrading their products?",
+      "What changes has the development of technology brought about in our lives?",
+      "Does the development of technology affect the way we study? How?"
+    ]
+  },
+  {
+    "id": 6,
+    "topic_name": "国外的食物",
+    "part2_content": "Describe a kind of foreign food you like and you have had You should say:\nWhat it is\nWhen and where you had it\nWhy you like it\nAnd explain how you feel about it",
+    "part3_questions": [
+      "Do most people like to eat the food they are familiar with or try new food?",
+      "What kinds of foreign food are popular in your country?",
+      "Do you like to cook at home?",
+      "Is it expensive to eat out in your country?",
+      "What's the difference between Chinese food and western food?"
+    ]
+  },
+  {
+    "id": 7,
+    "topic_name": "精美的物品",
+    "part2_content": "Describe an object that you think is beautiful\nYou should say:\nWhat it is\nWhere you saw it\nWhat it looks like\nAnd explain why you think it is beautiful",
+    "part3_questions": [
+      "Do you think there are more beautiful things now than in the past? Why?",
+      "What beautiful scenery spots are there in your country?",
+      "Why do you think people create beautiful things?",
+      "Where do you think people usually come into contact with beautiful things?",
+      "Do people in your country prefer listening to music to appreciating paintings and literature?",
+      "Why do many people go to scenic spots in person instead of just reading about them in books?"
+    ]
+  },
+  {
+    "id": 8,
+    "topic_name": "不得不与他人分享的东西",
+    "part2_content": "Describe something you had to share with others You should say: What it was Who you shared it with Why you had to share it with others And explain how you felt about it",
+    "part3_questions": [
+      "Do you think kids like to share? Why?",
+      "How can parents teach their children to share?",
+      "What do you think is the benefit of sharing for children?",
+      "Is there anything that parents should persuade children to share with others?",
+      "How can governments encourage shared transport?",
+      "Why is it important to share food with others during a celebration?"
+    ]
+  },
+  {
+    "id": 9,
+    "topic_name": "喜欢看的照片",
+    "part2_content": "Describe a photo that you enjoy looking at\nYou should say:\nWho took it\nWhen and where it was taken\nWhat the photo was about\nAnd explain why you enjoy looking at it",
+    "part3_questions": [
+      "Why do many people like to share photos on social media platforms?",
+      "On what occasions do most people like to take photos?",
+      "What are the most enjoyable parts of having a meal together with your family?"
+    ]
+  },
+  {
+    "id": 10,
+    "topic_name": "感到自豪的照片",
+    "part2_content": "Describe a photo you took that you are proud of\nYou should say:\nWhen you took it\nWhere you took it\nWhat is in this photo\nAnd explain why you are proud of it",
+    "part3_questions": [
+      "Why do some people like to record important things with photos?",
+      "What can people learn from historical photographs?",
+      "Is taking photos the best way to remember something?",
+      "Which is better, taking photos or keeping a diary?",
+      "When do people take photos?",
+      "Why do some people like to keep old photos?"
+    ]
+  },
+  {
+    "id": 11,
+    "topic_name": "保留很久的重要老物件",
+    "part2_content": "Describe an important old thing that your family has kept for a long time You should say: What it is How/when your family first got this thing How long your family has kept it And explain why this thing is important to your family",
+    "part3_questions": [
+      "What kind of old things do people like to keep?",
+      "Why do people keep old things?",
+      "What are the differences between the things old people keep and those young people keep?",
+      "What are the differences between the things that people keep today and the things that people kept in the past?"
+    ]
+  },
+  {
+    "id": 12,
+    "topic_name": "去过且受欢迎的运动场所",
+    "part2_content": "Describe a popular place for sports (e.g. a stadium) that you've been to You should say: Where it is When you went there What you did there And explain how you felt about this place",
+    "part3_questions": [
+      "Do young people like to do sports?",
+      "What are the benefits of sports for children?",
+      "Is it necessary to build public sports spaces?",
+      "What do you think of companies donating sports venues for poor children?",
+      "Is technology helpful for people to do sports?",
+      "Do you think local sports teams can help increase community connections?"
+    ]
+  },
+  {
+    "id": 13,
+    "topic_name": "户外活动之地",
+    "part2_content": "Describe a place you went to and an outdoor activity you did there You should say: Where it was When you went there What outdoor activity you did there Why you went there and did the activity And explain how you felt about it",
+    "part3_questions": [
+      "What sports do young people like?",
+      "What kind of people do extreme sports?",
+      "Why are some people willing to try dangerous extreme sports?",
+      "Should people take more into account the risks that extreme sports may bring?",
+      "Why do people keep inventing new and slightly dangerous sports?",
+      "What risks are there in extreme sports and who takes these consequences?"
+    ]
+  },
+  {
+    "id": 14,
+    "topic_name": "常去的熟人之家",
+    "part2_content": "Describe the home of someone you know well and that you often visit You should say: Whose home it is How often you go there What it is like And explain how you feel about the home",
+    "part3_questions": [
+      "What are the differences between buildings in the city and in the countryside?",
+      "Do you prefer to live in the city or in the countryside?",
+      "What safety risks are there in residential buildings in cities?",
+      "Is it expensive to decorate a house or an apartment in the place where you live?",
+      "Do you think the location is a key factor in where people choose to live?",
+      "What is the role of plants in home decoration?"
+    ]
+  },
+  {
+    "id": 15,
+    "topic_name": "家里放松的地方",
+    "part2_content": "Describe your favorite place in your house where you can relax You should say: Where it is What it is like What you enjoy doing there And explain why you feel relaxed at this place",
+    "part3_questions": [
+      "Why is it difficult for some people to relax?",
+      "What are the benefits of doing exercise?",
+      "Do people in your country exercise after work?",
+      "What is the place where people spend most of their time at home?",
+      "Do you think there should be classes for training young people and children how to relax?",
+      "Which is more important, mental relaxation or physical relaxation?"
+    ]
+  },
+  {
+    "id": 16,
+    "topic_name": "会向游客推荐的本国旅游地",
+    "part2_content": "Describe a place in your country or part of your country that you would like to recommend to visitors/travelers\nYou should say:\nWhat it is\nWhere it is\nWhat people can do there\nAnd explain why you would like to recommend it to visitors/travelers",
+    "part3_questions": [
+      "Is it important to take photos while traveling?",
+      "Can you trust other people's travel journals on the Internet?",
+      "What factors affect how people feel about traveling?",
+      "Will you go to a foreign country to travel because of the distinct landscape?",
+      "How can tourists have a good travel experience?",
+      "What kinds of comments do travelers typically leave online after a trip?"
+    ]
+  },
+  {
+    "id": 17,
+    "topic_name": "看到动物的地方",
+    "part2_content": "Describe a place where you saw animals\nYou should say:\nWhen you went there\nWho you went with\nWhat animals you saw there\nAnd explain how you felt about the place",
+    "part3_questions": [
+      "Why do stories and movies for children always feature animals?",
+      "How did animals help people in the past?",
+      "How do animals help us today?",
+      "Do you think people are more interested in animals now than they were in the past?",
+      "Why should we protect animals?",
+      "Do you think children love animals more than old people do?"
+    ]
+  }
+]

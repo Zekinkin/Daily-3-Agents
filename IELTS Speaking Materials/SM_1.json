@@ -1,0 +1,120 @@
+[
+  {
+    "id": 1,
+    "topic_name": "擅长音乐的朋友",
+    "part2_content": "Describe a friend of yours who is good at music/singing You should say: Who he/she is When/where you listen to his/her music/singing What kind of music/songs he/she is good at And explain how you feel when listening to his music/singing",
+    "part3_questions": [
+      "What kind of music is popular in your country?",
+      "What kind of music do young people like?",
+      "Do you think music is beneficial for children at school?",
+      "What are the benefits of children learning a musical instrument? Do you know what kind of music children like today?",
+      "Do you think the government should invest more money on concerts?"
+    ]
+  },
+  {
+    "id": 2,
+    "topic_name": "迷路",
+    "part2_content": "Describe an occasion when you lost your way You should say: Where you were What happened How you felt And explain how you found your way",
+    "part3_questions": [
+      "Why do some people get lost more easily than others?",
+      "Do you think it is important to be able to read a map?",
+      "Do you think it is important to do some preparation before you travel to new places? How can people find their way when they are lost?",
+      "Is a paper map still necessary?",
+      "How do people react when they get lost?"
+    ]
+  },
+  {
+    "id": 3,
+    "topic_name": "和亲友享受的晚餐",
+    "part2_content": "Describe a great dinner you and your friend or family members enjoyed You should say: What you had Who you had the dinner with What you talked about during the dinner And explain why you enjoyed it",
+    "part3_questions": [
+      "Do people prefer to eat out at restaurants or eat at home during the Spring Festival?",
+      "What food do you eat on special occasions, like during the Spring Festival or the Mid-autumn Festival?",
+      "Why do people like to have meals together during important festivals?",
+      "Is it a hassle to prepare a meal at home?",
+      "What do people often talk about during meals?",
+      "People are spending less and less time having meals with their families these days. Is this good or bad?"
+    ]
+  },
+  {
+    "id": 4,
+    "topic_name": "传统故事",
+    "part2_content": "Describe an interesting traditional story\nYou should say:\nWhat the story is about When/how you knew it\nWho told you the story\nAnd explain how you felt when you first heard it",
+    "part3_questions": [
+      "What kind of stories do children like?",
+      "What are the benefits of bedtime stories for children?",
+      "Why do most children like listening to stories before bedtime? What can children learn from stories?",
+      "Do all stories for children have happy endings?",
+      "Is a good storyline important for a movie?"
+    ]
+  },
+  {
+    "id": 5,
+    "topic_name": "突然停电",
+    "part2_content": "Describe a time when the electricity suddenly went off You should say: When/where it happened How long it lasted What you did during that time And explain how you felt about it",
+    "part3_questions": [
+      "Which is better, electric bicycles or ordinary bicycles?",
+      "Do you think electric bicycles will replace ordinary bicycles in the future?",
+      "Which is better, electric cars or petrol cars?",
+      "How did people manage to live without electricity in the ancient world?",
+      "Is it difficult for the government to replace all the petrol cars with electric cars?",
+      "Do people use more electricity now than before?"
+    ]
+  },
+  {
+    "id": 6,
+    "topic_name": "第一次尝试的兴奋活动",
+    "part2_content": "Describe an exciting activity you have tried for the first time You should say: What it is When/where you did it Why you thought it was exciting And explain how you felt about it",
+    "part3_questions": [
+      "Why are some people unwilling to try new things?",
+      "Do you think fear stops people from trying new things?",
+      "Why are some people keen on doing dangerous activities?",
+      "Do you think that children adapt to new things more easily than adults?",
+      "What can people learn from doing dangerous activities?"
+    ]
+  },
+  {
+    "id": 7,
+    "topic_name": "在他人的帮助下做出的重要决定",
+    "part2_content": "Describe an important decision made with the help of other people You should say: What the decision was Why you made the decision Who helped you make the decision And how you felt about it",
+    "part3_questions": [
+      "What kind of decisions do you think are meaningful?",
+      "What important decisions should be made by teenagers themselves? Why are some people unwilling to make quick decisions?",
+      "Do people like to ask for advice about their personal life or their work? Why do people like to ask others for advice?"
+    ]
+  },
+  {
+    "id": 8,
+    "topic_name": "想去的多树之地",
+    "part2_content": "Describe a place with a lot of trees that you would like to visit (e.g. a forest, oasis)\nYou should say:\nWhere it is\nHow you knew this place\nWhat it is like\nAnd explain why you would like to visit it",
+    "part3_questions": [
+      "Why do people like visiting places with trees or forests?",
+      "Are natural views better than city views?",
+      "Do all people need some nature?",
+      "Are people hard-wired to protect environment?"
+    ]
+  },
+  {
+    "id": 9,
+    "topic_name": "近期做出的积极改变",
+    "part2_content": "Describe a positive change that you have made recently in your daily routine You should say: What the change is How you have changed the routine Why you think it is a positive change And explain how you feel about the change",
+    "part3_questions": [
+      "What do people normally plan in their daily lives?",
+      "Is time management very important in our daily lives?",
+      "What changes would people often make?",
+      "Do you think it is good to change jobs frequently?",
+      "Who do you think would make changes more often, young people or old people? Who should get more promotion opportunities in the workplace, young people or older people?"
+    ]
+  },
+  {
+    "id": 10,
+    "topic_name": "购物服务",
+    "part2_content": "Describe a time when you received good service in a shop/store You should say: Where the shop is When you went to the shop What service you received from the staff And explain how you felt about the service",
+    "part3_questions": [
+      "Why are shopping malls so popular in China?",
+      "What are the advantages and disadvantages of shopping in small shops? Why do some people not like shopping in small shops?",
+      "What are the differences between online shopping and in-store shopping? What are the advantages and disadvantages of shopping online?",
+      "Can consumption drive economic growth?"
+    ]
+  }
+]

@@ -1,0 +1,256 @@
+[
+  {
+    "id": 1,
+    "topic_name": "弄坏某物的经历",
+    "part2_content": "Describe a time when you broke something\nYou should say:\nWhat it was\nWhen/where that happened\nHow you broke it\nAnd explain what you did after that",
+    "part3_questions": [
+      "What kind of things are more likely to be broken by people at home?",
+      "What kind of people like to fix things by themselves?",
+      "Do you think clothes produced in the factory are of better quality than those made by hand?",
+      "Do you think handmade clothes are more valuable?",
+      "Is the older generation better at fixing things?",
+      "Do you think elderly people should teach young people how to fix things?"
+    ]
+  },
+  {
+    "id": 2,
+    "topic_name": "想再来一次的旅行",
+    "part2_content": "Describe a trip you would like to make again\nYou should say:\nWhere and when you went\nWho you made the trip with\nWhat you did during the trip\nAnd explain why you would like to make the trip again",
+    "part3_questions": [
+      "Why do people like travelling?",
+      "What should we prepare before a trip?",
+      "What would happen if no preparation were made before the trip?",
+      "Why do some people prefer to travel in their own country rather than going abroad?"
+    ]
+  },
+  {
+    "id": 3,
+    "topic_name": "想做的户外运动",
+    "part2_content": "Describe an outdoor sport you would like to try for the first time\nYou should say:\nWhat it is\nWhen/where you would like to do it\nWith whom you would like to do it\nAnd explain why you would like to do it",
+    "part3_questions": [
+      "What are the differences between indoor sports and outdoor sports?",
+      "Which outdoor sports are popular in China?",
+      "Which sports are popular among elderly people?",
+      "Which outdoor sports are popular with children?",
+      "How do weather affect outdoor sports?",
+      "Which is more dangerous, team sports or individual sports?"
+    ]
+  },
+  {
+    "id": 4,
+    "topic_name": "喜欢看的节目",
+    "part2_content": "Describe a program you like to watch\nYou should say:\nWhat it is\nWhat it is about\nWho you watch it with\nAnd explain why you like to watch it",
+    "part3_questions": [
+      "What programs do people like to watch in your country?",
+      "Do people in your country like to watch foreign TV programs?",
+      "What's the benefit of letting kids watch animal videos than visiting zoos?",
+      "Do teachers play videos in class in your country?",
+      "Do you think watching talk shows is a waste of time?",
+      "Do you think we can acquire knowledge from watching TV programs?"
+    ]
+  },
+  {
+    "id": 5,
+    "topic_name": "想作为观众观看的体育赛事",
+    "part2_content": "Describe a sports event you would like to watch as part of the audience You should say: What it is Who you want to watch with Why you want to watch it And explain how you feel about it",
+    "part3_questions": [
+      "What kinds of sports events are broadcast on TV or other media in your country?",
+      "Do people in your country enjoy watching football games?",
+      "Do encouragement and applause from the audience have an impact on athletes? How do these affect them?",
+      "Which do people in your country prefer to watch, team sports or individual sports?",
+      "What kinds of sports are the most popular in your country?",
+      "Why do so many children like to watch basketball games?"
+    ]
+  },
+  {
+    "id": 6,
+    "topic_name": "二手货网站",
+    "part2_content": "Describe a website that sells second-hand items You should say: What it is How you found out about it What you have bought from it And explain whether you like it",
+    "part3_questions": [
+      "Some people think it's a waste to buy too many clothes for children. What do you think?",
+      "How do people usually handle the clothes they don't want?",
+      "Why do people buy second-hand clothes?",
+      "What problems will occur if people don't recycle?",
+      "Should the government encourage people to recycle items?",
+      "How do people in your country recycle various items they don't want?"
+    ]
+  },
+  {
+    "id": 7,
+    "topic_name": "常用网站",
+    "part2_content": "Describe a website you often visit\nYou should say:\nWhat it is about\nHow you found out about it\nHow often you visit it\nAnd explain why you often visit it",
+    "part3_questions": [
+      "What are the most popular and least popular apps in China?",
+      "What's the difference between the internet and television?",
+      "Why do some people like to read the news on the internet instead of getting it from TV?",
+      "Is the library still necessary? Why?",
+      "What kinds of people would still go to the library to read and study?",
+      "What are the differences between old people and young people when they use the internet?"
+    ]
+  },
+  {
+    "id": 8,
+    "topic_name": "可以教别人的技能",
+    "part2_content": "Describe a skill (e.g. driving, cooking, etc) that you think you can teach other people\nYou should say:\nWhat it is\nWhen you learned it\nHow you can teach others\nAnd explain why you think you are good at teaching this skill",
+    "part3_questions": [
+      "Should teachers be funny when they teach?",
+      "What qualities should teachers have?",
+      "Which do you think is more important, practical skills or academic skills? Which age group is the best at learning new things?",
+      "What can be done to improve modern teaching methods?",
+      "What are the differences between online and face-to-face teaching?"
+    ]
+  },
+  {
+    "id": 9,
+    "topic_name": "努力实现的目标",
+    "part2_content": "Describe a goal you set that you tried your best to achieve You should say: What it was When you set it What you did to achieve it And how you felt about it",
+    "part3_questions": [
+      "Do people in your country set goals?",
+      "Do people usually set long-term goals or short- term ones?",
+      "Why is setting goals important in the workplace?",
+      "What is the difference between goals set by old people and young people? How do people set goals?",
+      "Do you think people should have their person life goals?"
+    ]
+  },
+  {
+    "id": 10,
+    "topic_name": "知名产品的广告",
+    "part2_content": "Describe an advertisement you have seen that introduced a well-known product You should say: When and where you saw the advertisement What the product was How you liked the advertisement And explain how you felt about it",
+    "part3_questions": [
+      "Where do we often see advertisements?",
+      "What are the benefits of advertising?",
+      "Are advertisements good or bad for children?",
+      "How does advertising affect people?",
+      "Do people pay attention to advertisement on public transport?",
+      "Do you think it is good to see the same advertisements everywhere?"
+    ]
+  },
+  {
+    "id": 11,
+    "topic_name": "在杂志或者网上读到的健康文章",
+    "part2_content": "Describe an article on health you read in a magazine or on the Internet You should say:\nWhat it was\nWhere you read it\nWhy you read it\nAnd how you felt about it",
+    "part3_questions": [
+      "Do you think people are healthier now than in the past?",
+      "How can you tell whether a website is reliable or not?",
+      "What activities can school organize for children to keep fit?",
+      "What can governments do to improve people's health?",
+      "Do schools have the responsibility to provide health education?",
+      "What can parents do to help improve their children’s health awareness?"
+    ]
+  },
+  {
+    "id": 12,
+    "topic_name": "读过的有趣小说/故事",
+    "part2_content": "Describe a story or novel you have read that you found interesting You should say: When you read it What the story or novel was about Who wrote it And explain why it was interesting",
+    "part3_questions": [
+      "Do you prefer to read e-books or printed books?",
+      "What kinds of novels are suitable for a film adaptation?",
+      "How does technology help people tell stories?",
+      "Why are mystery novels so popular nowadays?",
+      "Is there any difference between the popular novels now and those in the past?",
+      "Why do some people prefer reading novels to playing computer games in this digital world?"
+    ]
+  },
+  {
+    "id": 13,
+    "topic_name": "最近看过想再看的电影",
+    "part2_content": "Describe a movie you watched recently and would like to watch again You should say: What type of movie it was What it was about Where you watched it And explain why you would like to watch it again",
+    "part3_questions": [
+      "Where do people normally watch movies?",
+      "What are the differences between watching movies at home and in a cinema?",
+      "Are actors or actresses important to movies? Why?",
+      "Why are there fewer people going to the cinema to watch movies nowadays?",
+      "What makes a movie a blockbuster?",
+      "Why do people of different ages like different types of movies?"
+    ]
+  },
+  {
+    "id": 14,
+    "topic_name": "搞笑电影",
+    "part2_content": "Describe a film that made you laugh\nYou should say:\nWhat it is\nWhen you watched it\nWho you watched it with\nAnd explain why it made you laugh",
+    "part3_questions": [
+      "Do people like comedy?",
+      "Why do people of all ages like cartoons?",
+      "Why do some people like to make others laugh?",
+      "Should teachers tell jokes in class?",
+      "What kind of people like comedy?",
+      "Is it good to tell jokes in business activities?"
+    ]
+  },
+  {
+    "id": 15,
+    "topic_name": "朋友的争执",
+    "part2_content": "Describe an argument two of your friends had You should say: When it happened What it was about How it was solved And how you felt about it",
+    "part3_questions": [
+      "Do you think arguments are important?",
+      "What do family members usually have arguments about?",
+      "Is it easier for you to have arguments with your family or with your friends?",
+      "Do you think people should change the way they think when having arguments?",
+      "Do you think that when two people have an argument, they should find a third party to ask for advice?",
+      "What qualities make a good lawyer?"
+    ]
+  },
+  {
+    "id": 16,
+    "topic_name": "和某人的争执",
+    "part2_content": "Describe a disagreement you had with someone You should say: Who you had the disagreement with What the disagreement was What happened And explain how you felt about it",
+    "part3_questions": [
+      "What do you do if you disagree with someone?",
+      "How can we stop an argument from escalating into a fight?",
+      "Who do you think should teach children to respect their teacher?",
+      "What disagreements do parents and children usually have?",
+      "Why do some people avoid arguing with others?",
+      "How do we show respect to others when we disagree with them?"
+    ]
+  },
+  {
+    "id": 17,
+    "topic_name": "和老人的有趣谈话",
+    "part2_content": "Describe an interesting conversation you had with a very old person You should say: Who this person is When and where you had the conversation What you talked about And explain why you think it was interesting",
+    "part3_questions": [
+      "How do people have a conversation with an elderly person?",
+      "What can young people learn from old people?",
+      "Do you think old people can work better than young people?",
+      "What are the advantages of having people of different ages living in the same house?",
+      "Has old people's life quality improved when compared to the past?",
+      "Do old people share the same interests as young people?"
+    ]
+  },
+  {
+    "id": 18,
+    "topic_name": "印象深刻的英语课",
+    "part2_content": "Describe an impressive English lesson you had and enjoyed You should say: What it was about When you had it What the teacher did And why you enjoyed the lesson",
+    "part3_questions": [
+      "Why do people learn foreign languages?",
+      "What makes a good foreign language teacher?",
+      "Do you think grammar is important when learning foreign languages?",
+      "Is it interesting to be a foreign language teacher? Why?",
+      "What is the impact of information technology on learning foreign languages?",
+      "What effect will it have on the students if the teacher is impatient with them?"
+    ]
+  },
+  {
+    "id": 19,
+    "topic_name": "印象深刻的谈话",
+    "part2_content": "Describe an impressive and interesting conversation you had that you remember well\nYou should say:\nWho you talked to\nWhen and where you had the talk\nWhat you talked about\nAnd explain why you think it was impressive",
+    "part3_questions": [
+      "What topics do young people like to talk about?",
+      "Is it important to have good communication skills at work?",
+      "What are the differences between talking with friends online and face-to-face?",
+      "What are the differences between online and onsite meetings in a company?"
+    ]
+  },
+  {
+    "id": 20,
+    "topic_name": "诗/歌中的句子",
+    "part2_content": "Describe a line (or a few words) that you remember from a poem or a song You should say: What it is Which song or poem it is from How you knew it And explain how you feel about it",
+    "part3_questions": [
+      "What can people learn from songs or poems?",
+      "Do you think it is easier for children to learn a song or poem than adults? Why?",
+      "Do you think children would like the rhythm of songs or poems? Why?",
+      "Are you good at memorizing things?",
+      "Do you think it is a waste of time for kids to learn songs or poems?",
+      "Do you think it’s important for kids to learn history at school?"
+    ]
+  }
+]
