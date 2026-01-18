@@ -1,4 +1,6 @@
 import time
+import subprocess
+import os
 from services.sheets import get_client, SHEET_ID, get_active_users
 from services.mailer import send_email
 
@@ -9,53 +11,62 @@ def check_and_dispatch():
     if not client: return
     
     try:
-        # 1. 打开内容库 (Sheet1)
-        sheet = client.open_by_key(SHEET_ID).sheet1
-        
-        # 获取所有内容
+        # 1. 打开内容库
+        sheet = client.open_by_key(SHEET_ID).worksheet("Check")
         rows = sheet.get_all_values()
         
-        # 遍历每一行 (跳过表头，i 从 1 开始)
+        # 2. 获取订阅用户名单 (只读一次，避免重复请求)
+        recipients = get_active_users()
+        if not recipients:
+            print("⚠️ 没有找到有效的订阅用户，本次跳过发送。")
+            # 注意：如果没用户，就不应该继续执行发送逻辑，防止空转
+            # 但我们仍然需要处理 Reject 的重生成逻辑
+        
+        # 3. 遍历每一行 (跳过表头)
         for i in range(1, len(rows)):
             row = rows[i]
-            
-            # 防止空行
             if not row or len(row) < 5: continue
             
-            # E列 (索引4) 是 Status
-            status = row[4] 
+            # 获取关键信息
+            task_name = row[1]
+            subject = row[2]
+            html_content = row[3]
+            status = row[4].strip() # 去除可能的手滑空格
             
-            # 🎯 发现了一条 "Approved" (已审核) 的内容
-            if status == "Approved":
-                subject = row[2]
-                html_content = row[3]
+            # --- 场景 A: 正常发送 (Approved 或 Pending) ---
+            # 只要不是 Reject，不是 Sent，不是 Regenerated，就默认发送
+            if status in ["Approved", "Pending"] and recipients:
+                print(f"\n🚀 发现待发送任务 ({status}): 【{subject}】")
+                print(f"📧 正在群发给 {len(recipients)} 位用户...")
                 
-                print(f"\n🚀 发现待发送任务: 【{subject}】")
-                
-                # 2. 获取订阅用户名单
-                # 这里调用我们在 sheets.py 里写好的新函数
-                recipients = get_active_users()
-                
-                if not recipients:
-                    print("⚠️ 没有找到有效的订阅用户，取消发送。")
-                    # 也可以选择不更新状态，或者标记为 "No Users"
-                    continue
-                
-                print(f"📧 准备群发给 {len(recipients)} 人...")
-                
-                # 3. 执行发送
-                # 把用户列表传给 send_email
                 if send_email(subject, html_content, to_emails=recipients):
-                    # 4. 发送成功，更新状态为 "Sent"
-                    # Google Sheets 行号是 i+1
+                    # 更新状态为 Sent
                     sheet.update_cell(i+1, 5, "Sent") 
-                    print(f"✅ 第 {i+1} 行状态已更新为 Sent。")
+                    print(f"✅ 发送成功，状态已更新为 Sent。")
                 else:
-                    print(f"❌ 发送失败，保持 Approved 状态等待重试。")
-            
-            elif status == "Pending":
-                # 仅仅打印日志，不做操作
-                # print(f"  ⏳ 第 {i+1} 行等待审核...")
+                    print(f"❌ 发送失败，保持状态不变。")
+
+            # --- 场景 B: 用户不满意 (Reject) ---
+            elif status.lower() == "reject":
+                print(f"\n🛑 发现被拒绝的任务: 【{subject}】")
+                print(f"🔄 正在触发重生成逻辑 (Task: {task_name})...")
+                
+                # 1. 调用 main.py 重写
+                # 这里的逻辑是：运行 main.py -> 生成新内容 -> 插入新行(Pending) -> 发预览邮件给你
+                try:
+                    # 使用 subprocess 调用，相当于在命令行输入 python main.py --task xxx
+                    subprocess.run(["python", "main.py", "--task", task_name], check=True)
+                    print("✅ 重生成完成！新内容已存入表格并发送预览。")
+                    
+                    # 2. 标记旧行为 "Regenerated" (已处理)，避免下次重复重写
+                    sheet.update_cell(i+1, 5, "Regenerated")
+                    
+                except Exception as e:
+                    print(f"❌ 重生成失败: {e}")
+
+            # --- 场景 C: 已处理或无需处理 ---
+            else:
+                # Sent, Regenerated, 或其他状态，直接跳过
                 pass
                 
     except Exception as e:
