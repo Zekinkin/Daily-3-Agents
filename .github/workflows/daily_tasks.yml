@@ -1,18 +1,15 @@
-name: 🤖 每日内容自动生成
+name: 🤖 每日内容集中生成 (晚间备稿)
 
 on:
   schedule:
-    # 北京时间 08:00 (UTC 00:00) - 早报
-    - cron: '0 0 * * *'
-    # 北京时间 12:00 (UTC 04:00) - 午报
-    - cron: '0 4 * * *'
-    # 北京时间 21:30 (UTC 13:30) - 晚报
-    - cron: '30 13 * * *'
+    # 北京时间 21:00 = UTC 13:00
+    # 每天晚上 9 点，一次性备好明天的三顿饭
+    - cron: '0 13 * * *'
+  
   workflow_dispatch:
-    # 允许我们手动在网页上点按钮运行测试
     inputs:
       task:
-        description: '选择运行任务'
+        description: '手动测试任务'
         required: true
         default: 'morning'
         type: choice
@@ -20,38 +17,41 @@ on:
         - morning
         - afternoon
         - evening
+        - all_daily
 
 jobs:
-  run-ai-agent:
+  generate-all:
     runs-on: ubuntu-latest
     steps:
-      - name: 1. 拉取代码
-        uses: actions/checkout@v3
-
-      - name: 2. 安装 Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
-      - name: 3. 安装依赖库
-        run: pip install -r requirements.txt
-
-      - name: 4. 恢复 Google 密钥文件
-        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-      - name: 5. 运行 Python 脚本
+      - run: pip install -r requirements.txt
+      - run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+      
+      - name: 批量生成内容
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          # 👇 新增这三行！因为生成脚本现在也要发预览邮件了 👇
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
           MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }}
         run: |
-          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-            python main.py --task ${{ github.event.inputs.task }}
+          # 如果是手动触发且选了特定任务
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ] && [ "${{ github.event.inputs.task }}" != "all_daily" ]; then
+             python main.py --task ${{ github.event.inputs.task }}
           else
-            HOUR=$(date +%H)
-            if [ "$HOUR" == "00" ]; then python main.py --task morning; fi
-            if [ "$HOUR" == "04" ]; then python main.py --task afternoon; fi
-            if [ "$HOUR" == "13" ]; then python main.py --task evening; fi
+             # 定时触发 (或手动选了 all_daily)：连续生成三篇
+             echo "🌙 开始生成明日内容..."
+             
+             echo "1️⃣ 生成早报..."
+             python main.py --task morning
+             
+             echo "2️⃣ 生成午报..."
+             python main.py --task afternoon
+             
+             echo "3️⃣ 生成晚报..."
+             python main.py --task evening
+             
+             echo "✅ 全部生成完毕！请查收 3 封预览邮件。"
           fi
