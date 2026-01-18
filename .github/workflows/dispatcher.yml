@@ -1,52 +1,66 @@
-name: 🚚 自动邮件分发 (定点发刊)
+name: 🚚 智能分发与监控
 
 on:
   schedule:
-    # ⚠️ GitHub 使用 UTC 时间 (北京时间 -8小时)
-    # 这里的设定是给每个任务留出约 1.5 小时的“人工审核/静默期”
-    
-    # 1. 早报发刊：北京 09:30 (UTC 01:30)
-    - cron: '30 1 * * *'
-    
-    # 2. 午报发刊：北京 13:30 (UTC 05:30)
-    - cron: '30 5 * * *'
-    
-    # 3. 晚报发刊：北京 23:00 (UTC 15:00)
-    - cron: '0 15 * * *'
-    
-  # 允许手动点击按钮强行触发 (用于测试或补发)
+    # --- 定点发货 (Send Mode) ---
+    # 1. 早报: 北京 08:00 (UTC 00:00)
+    - cron: '0 0 * * *'
+    # 2. 午报: 北京 12:00 (UTC 04:00)
+    - cron: '0 4 * * *'
+    # 3. 晚报: 北京 21:00 (UTC 13:00)
+    # (注: 这时昨晚生成的晚报正好发出去，同时 daily_tasks 也在生成明天的，互不冲突)
+    - cron: '0 13 * * *'
+
+    # --- 持续监控 (Monitor Mode) ---
+    # 每小时的第 30 分运行一次，专门处理 Reject 重写
+    - cron: '30 * * * *'
+
   workflow_dispatch:
 
 jobs:
-  run-dispatcher:
+  dispatch-logic:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: 1. 拉取代码
-        uses: actions/checkout@v3
-
-      - name: 2. 安装 Python
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-
-      - name: 3. 安装依赖库
-        run: pip install -r requirements.txt
-
-      - name: 4. 恢复 Google 密钥文件
-        # 无论是读表发信，还是重写入库，都必须有这个身份证
-        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
-
-      - name: 5. 运行调度脚本
+      - run: pip install -r requirements.txt
+      - run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+      
+      - name: 执行调度
         env:
-          # --- 发信需要 ---
           MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
           MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
-          
-          # --- 重生成需要 (万一触发 Reject 重写) ---
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }} # 用于接收重写后的预览邮件
+          MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }}
+          SHEET_ID: "你的表格ID (如果没设Secret就不用管这行)"
         run: |
-          echo "🔎 [Cron] 启动调度器..."
-          echo "⏰ 当前 UTC 时间: $(date)"
-          python dispatcher.py
+          HOUR=$(date +%H)
+          MINUTE=$(date +%M)
+          
+          # 1. 判断是否是定点发送时间 (容差 +/- 5分钟)
+          # 注意：GitHub Action 启动可能有延迟，所以不需要精确到秒
+          
+          # UTC 00:00 -> 发 Morning
+          if [ "$HOUR" == "00" ]; then
+             echo "🚀 [时间到] 发送早报..."
+             python dispatcher.py --mode send --task morning
+          fi
+          
+          # UTC 04:00 -> 发 Afternoon
+          if [ "$HOUR" == "04" ]; then
+             echo "🚀 [时间到] 发送午报..."
+             python dispatcher.py --mode send --task afternoon
+          fi
+          
+          # UTC 13:00 -> 发 Evening
+          if [ "$HOUR" == "13" ]; then
+             echo "🚀 [时间到] 发送晚报..."
+             python dispatcher.py --mode send --task evening
+          fi
+          
+          # 2. 无论何时，都运行一次监控，处理 Reject
+          # 这样即使不是整点，你 Reject 之后，半小时内也会被重写
+          echo "👀 [巡逻] 检查是否有拒绝任务..."
+          python dispatcher.py --mode monitor
