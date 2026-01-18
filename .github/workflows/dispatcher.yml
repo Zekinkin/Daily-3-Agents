@@ -1,0 +1,52 @@
+name: 🚚 自动邮件分发 (定点发刊)
+
+on:
+  schedule:
+    # ⚠️ GitHub 使用 UTC 时间 (北京时间 -8小时)
+    # 这里的设定是给每个任务留出约 1.5 小时的“人工审核/静默期”
+    
+    # 1. 早报发刊：北京 09:30 (UTC 01:30)
+    - cron: '30 1 * * *'
+    
+    # 2. 午报发刊：北京 13:30 (UTC 05:30)
+    - cron: '30 5 * * *'
+    
+    # 3. 晚报发刊：北京 23:00 (UTC 15:00)
+    - cron: '0 15 * * *'
+    
+  # 允许手动点击按钮强行触发 (用于测试或补发)
+  workflow_dispatch:
+
+jobs:
+  run-dispatcher:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 1. 拉取代码
+        uses: actions/checkout@v3
+
+      - name: 2. 安装 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 3. 安装依赖库
+        run: pip install -r requirements.txt
+
+      - name: 4. 恢复 Google 密钥文件
+        # 无论是读表发信，还是重写入库，都必须有这个身份证
+        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+
+      - name: 5. 运行调度脚本
+        env:
+          # --- 发信需要 ---
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          
+          # --- 重生成需要 (万一触发 Reject 重写) ---
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }} # 用于接收重写后的预览邮件
+        run: |
+          echo "🔎 [Cron] 启动调度器..."
+          echo "⏰ 当前 UTC 时间: $(date)"
+          python dispatcher.py
