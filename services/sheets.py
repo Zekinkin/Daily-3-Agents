@@ -17,7 +17,7 @@ SCOPE = [
 CREDS_FILE = os.path.join(os.getcwd(), 'service_account.json')
 
 # 4. 你的表格 ID (保持不变)
-SHEET_ID = "请在这里粘贴你的表格ID" 
+SHEET_ID = "1tyu1VH-TSnV20E9uj3T6bmWFluCRZ7Y1bUqPakglXc8" 
 
 def get_client():
     try:
