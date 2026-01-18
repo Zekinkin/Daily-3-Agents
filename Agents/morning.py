@@ -7,7 +7,6 @@ from openai import OpenAI
 from dotenv import load_dotenv
 import time
 from newspaper import Article
-from IPython.display import display, HTML
 from services.sheets import push_to_sheets
 load_dotenv() # 加载你的 .env 文件
 print("环境配置已加载")
