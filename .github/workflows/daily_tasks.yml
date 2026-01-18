@@ -37,14 +37,16 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 4. 恢复 Google 密钥文件
-        # 这步就是把 Secret 变回文件供 sheets.py 读取
         run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
 
       - name: 5. 运行 Python 脚本
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          # 👇 新增这三行！因为生成脚本现在也要发预览邮件了 👇
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }}
         run: |
-          # 如果是手动触发，按选定的跑；如果是定时触发，按当前 UTC 时间判断
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             python main.py --task ${{ github.event.inputs.task }}
           else
