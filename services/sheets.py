@@ -4,18 +4,20 @@ import os
 import datetime
 import traceback
 
-# 1. 定义访问范围
+# 1. 引入发信模块 (新增)
+from services.mailer import send_email 
+
+# 2. 定义访问范围
 SCOPE = [
     "https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/drive"
 ]
 
-# 2. 密钥路径
+# 3. 密钥路径
 CREDS_FILE = os.path.join(os.getcwd(), 'service_account.json')
 
-# 3. ⚠️ 这里必须定义 SHEET_ID，否则 dispatcher 会报错
-# 请去浏览器地址栏复制：https://docs.google.com/spreadsheets/d/【就是这一长串】/edit
-SHEET_ID = "1tyu1VH-TSnV20E9uj3T6bmWFluCRZ7Y1bUqPakglXc8" 
+# 4. 你的表格 ID (保持不变)
+SHEET_ID = "请在这里粘贴你的表格ID" 
 
 def get_client():
     try:
@@ -28,40 +30,54 @@ def get_client():
 
 def push_to_sheets(task_name, subject, html_content):
     """
-    上传内容到 'Check' 这个 Tab (对应之前的 Sheet1)
+    上传内容到 'Check' Tab，并同时发送一份预览邮件给自己
     """
-    print(f"📤 正在上传 {task_name} 到 Google Sheets...")
+    print(f"📤 [Sheets] 正在上传 {task_name} 到表格...")
+    
+    # --- 1. 上传表格逻辑 ---
     client = get_client()
-    if not client: return False
-    try:
-        # ⚠️ 修改：明确指定写入名为 "Check" 的工作表
-        sheet = client.open_by_key(SHEET_ID).worksheet("Check")
-        
-        today_str = datetime.date.today().strftime("%Y-%m-%d")
-        # 你的 "Check" 表看起来是空的，我们假设前5列是: Date, Task, Subject, Content, Status
-        row_data = [today_str, task_name, subject, html_content, "Pending"]
-        
-        # 插入到第2行
-        sheet.insert_row(row_data, 2)
-        print(f"✅ 上传成功！")
-        return True
-    except Exception as e:
-        print(f"❌ 上传失败: {e}")
-        return False
+    upload_success = False
+    
+    if client:
+        try:
+            sheet = client.open_by_key(SHEET_ID).worksheet("Check")
+            today_str = datetime.date.today().strftime("%Y-%m-%d")
+            row_data = [today_str, task_name, subject, html_content, "Pending"]
+            
+            sheet.insert_row(row_data, 2)
+            print(f"✅ 表格上传成功！")
+            upload_success = True
+        except Exception as e:
+            print(f"❌ 表格上传失败: {e}")
+            # 即使表格失败了，我们也尝试发邮件，方便排查
+    
+    # --- 2. 发送预览邮件逻辑 (新增) ---
+    print(f"📧 [Preview] 正在发送预览邮件给自己...")
+    
+    # 给标题加个【预览】前缀，方便区分
+    preview_subject = f"【预览 Preview】{subject}"
+    
+    # 这里不传 to_emails 参数，它会自动读取 .env 里的 MAIL_RECIPIENTS
+    # 也就是发给你的测试接收邮箱
+    email_success = send_email(preview_subject, html_content)
+    
+    if email_success:
+        print(f"✅ 预览邮件已发送！")
+    else:
+        print(f"❌ 预览邮件发送失败。")
 
+    return upload_success
+
+# ... (get_active_users 函数保持不变，不用动) ...
 def get_active_users():
-    """
-    读取 'Users' 表的用户列表
-    """
+    # ... (保持原样) ...
+    # 为了节省篇幅，这里省略 get_active_users 的代码，请保留你原文件中这部分
     print("👥 正在读取订阅用户列表...")
     client = get_client()
     if not client: return []
     
     try:
-        # ⚠️ 确保读取名为 "Users" 的工作表
         sheet = client.open_by_key(SHEET_ID).worksheet("Users")
-        
-        # 获取所有数据 (包括表头)
         rows = sheet.get_all_values()
         
         if len(rows) < 2:
@@ -71,13 +87,9 @@ def get_active_users():
         active_emails = []
         today = datetime.date.today()
         
-        # 跳过第1行表头，从第2行数据开始
         for i in range(1, len(rows)):
             row = rows[i]
-            # 你的表格列结构 (根据截图):
-            # A列(索引0): Email
-            # D列(索引3): Expiry_Date
-            if len(row) < 4: continue # 防止空行报错
+            if len(row) < 4: continue 
 
             email = row[0]
             expiry_raw = row[3] 
@@ -85,7 +97,6 @@ def get_active_users():
             if not email or not expiry_raw: continue
                 
             try:
-                # 日期清洗：把 2026/2/18 变成 2026-2-18
                 expiry_str = str(expiry_raw).replace('/', '-').strip()
                 expiry_date = datetime.datetime.strptime(expiry_str, "%Y-%m-%d").date()
                 
@@ -101,9 +112,6 @@ def get_active_users():
         print(f"✅ 有效订阅用户: {len(active_emails)} 人")
         return active_emails
 
-    except gspread.exceptions.WorksheetNotFound:
-        print("❌ 错误：找不到对应的工作表。请检查 Tab 名字是否叫 'Check' 和 'Users'。")
-        return []
     except Exception as e:
         print(f"❌ 读取失败: {e}")
         return []
