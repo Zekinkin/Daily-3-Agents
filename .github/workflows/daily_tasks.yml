@@ -1,0 +1,55 @@
+name: 🤖 每日内容自动生成
+
+on:
+  schedule:
+    # 北京时间 08:00 (UTC 00:00) - 早报
+    - cron: '0 0 * * *'
+    # 北京时间 12:00 (UTC 04:00) - 午报
+    - cron: '0 4 * * *'
+    # 北京时间 21:30 (UTC 13:30) - 晚报
+    - cron: '30 13 * * *'
+  workflow_dispatch:
+    # 允许我们手动在网页上点按钮运行测试
+    inputs:
+      task:
+        description: '选择运行任务'
+        required: true
+        default: 'morning'
+        type: choice
+        options:
+        - morning
+        - afternoon
+        - evening
+
+jobs:
+  run-ai-agent:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. 拉取代码
+        uses: actions/checkout@v3
+
+      - name: 2. 安装 Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 3. 安装依赖库
+        run: pip install -r requirements.txt
+
+      - name: 4. 恢复 Google 密钥文件
+        # 这步就是把 Secret 变回文件供 sheets.py 读取
+        run: echo '${{ secrets.SERVICE_ACCOUNT_JSON }}' > service_account.json
+
+      - name: 5. 运行 Python 脚本
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          # 如果是手动触发，按选定的跑；如果是定时触发，按当前 UTC 时间判断
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            python main.py --task ${{ github.event.inputs.task }}
+          else
+            HOUR=$(date +%H)
+            if [ "$HOUR" == "00" ]; then python main.py --task morning; fi
+            if [ "$HOUR" == "04" ]; then python main.py --task afternoon; fi
+            if [ "$HOUR" == "13" ]; then python main.py --task evening; fi
+          fi
