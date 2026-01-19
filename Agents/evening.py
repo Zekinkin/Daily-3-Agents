@@ -12,6 +12,21 @@ from newspaper import Article
 import requests
 import re
 from services.sheets import push_to_sheets
+import datetime
+from datetime import timedelta, timezone
+
+# ================= 🇨🇳 北京时间智能日期逻辑 =================
+beijing_tz = timezone(timedelta(hours=8))
+now_in_beijing = datetime.datetime.now(beijing_tz)
+
+if now_in_beijing.hour >= 18:
+    target_date = now_in_beijing.date() + timedelta(days=1)
+else:
+    target_date = now_in_beijing.date()
+
+today_str = target_date.strftime("%Y-%m-%d")
+display_date_str = target_date.strftime('%A, %B %d, %Y')
+# =========================================================
 
 # 历史记录文件 (防止发重复的)
 HISTORY_FILE = r"/Volumes/zekinssd/MYPROJECT/Daily 3 Agents/IETLS Speaking Materials/Speaking_Materials.json"
@@ -280,7 +295,7 @@ def run():
                 save_history(article_data['link'])
             
             # 推送到 Google Sheets
-            subject = f"Evening Brief: {datetime.date.today()}"
+            subject = f"Evening Brief: {today_str}"
             push_to_sheets("evening", subject, html_content)
             print("😏已push到Google Sheet")
             
