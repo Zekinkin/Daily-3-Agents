@@ -9,9 +9,31 @@ import time
 import json
 import random
 from services.sheets import push_to_sheets
+import datetime
+from datetime import timedelta, timezone
 
 load_dotenv() # 加载你的 .env 文件
 print("环境配置已加载")
+
+# ================= 🇨🇳 北京时间智能日期逻辑 (新增) =================
+# 1. 强制创建一个北京时区 (UTC+8)
+beijing_tz = timezone(timedelta(hours=8))
+
+# 2. 获取当前的北京时间
+now_in_beijing = datetime.datetime.now(beijing_tz)
+
+# 3. 核心判断逻辑：
+# 如果北京时间超过 18:00 (晚上6点)，系统认为这是在"为明天备稿" -> 日期 +1
+# 如果北京时间没到 18:00 (比如上午补发)，系统认为这是"当日急救" -> 日期不变
+if now_in_beijing.hour >= 18:
+    target_date = now_in_beijing.date() + timedelta(days=1)
+else:
+    target_date = now_in_beijing.date()
+
+# 生成两种格式供下面使用
+today_str = target_date.strftime("%Y-%m-%d")  # 格式：2026-01-20
+display_date_str = target_date.strftime('%A, %B %d, %Y') # 格式：Tuesday, January 20, 2026
+# ================================================================
 
 BASE_DIR = os.getcwd()
 
@@ -83,7 +105,7 @@ def get_daily_topic(force_topic_id=None):
     
     new_state = {
         'current_index': next_index, 
-        'last_updated': str(datetime.date.today()),
+        'last_updated': str(today_str),
         'last_topic_name': topic_data['topic_name'] # 顺便记一下上次发了啥，方便人工检查
     }
     
@@ -220,7 +242,7 @@ def generate_ielts_html(topic_data, selected_p3):
             </div>
 
             <div style="text-align: center; margin-top: 40px; color: #57a086; font-size: 12px; font-style: italic;">
-                Daily Progress · {datetime.date.today().strftime('%Y.%m.%d')}
+                Daily Progress · {target_date.strftime('%Y.%m.%d')}
             </div>
 
         </div> 
@@ -229,7 +251,7 @@ def generate_ielts_html(topic_data, selected_p3):
 
     try:
         response = client.chat.completions.create(
-            model="deepseek-chat",
+            model="deepseek-reasoner",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
@@ -255,7 +277,7 @@ def run():
         if html_content:
 
             # 推送到 Google Sheets
-            subject = f"Afternoon Brief: {datetime.date.today()}"
+            subject = f"Afternoon Brief: {today_str}"
             push_to_sheets("afternoon", subject, html_content)
             print("😏已push到Google Sheet")
 
