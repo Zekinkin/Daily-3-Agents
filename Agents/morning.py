@@ -8,8 +8,30 @@ from dotenv import load_dotenv
 import time
 from newspaper import Article
 from services.sheets import push_to_sheets
+import datetime
+from datetime import timedelta, timezone
 load_dotenv() # 加载你的 .env 文件
 print("环境配置已加载")
+
+# ================= 🇨🇳 北京时间智能日期逻辑 (新增) =================
+# 1. 强制创建一个北京时区 (UTC+8)
+beijing_tz = timezone(timedelta(hours=8))
+
+# 2. 获取当前的北京时间
+now_in_beijing = datetime.datetime.now(beijing_tz)
+
+# 3. 核心判断逻辑：
+# 如果北京时间超过 18:00 (晚上6点)，系统认为这是在"为明天备稿" -> 日期 +1
+# 如果北京时间没到 18:00 (比如上午补发)，系统认为这是"当日急救" -> 日期不变
+if now_in_beijing.hour >= 18:
+    target_date = now_in_beijing.date() + timedelta(days=1)
+else:
+    target_date = now_in_beijing.date()
+
+# 生成两种格式供下面使用
+today_str = target_date.strftime("%Y-%m-%d")  # 格式：2026-01-20
+display_date_str = target_date.strftime('%A, %B %d, %Y') # 格式：Tuesday, January 20, 2026
+# ================================================================
 
 
 # RSS信息源
@@ -133,7 +155,7 @@ def get_news_summary(raw_text):
 
     # --- 2. User Prompt: 定义深蓝色皮肤与四大板块结构 ---
     user_prompt = f"""
-    今天是 {datetime.date.today()}。
+    今天是 {today_str}。
     
     【任务目标】：
     请阅读以下原始资讯池，筛选并整理出 **4 个固定板块** 的新闻内容。
@@ -158,7 +180,7 @@ def get_news_summary(raw_text):
         <div style="max-width: 800px; margin: 0 auto; margin-bottom: 30px; border-bottom: 4px solid #1a365d; padding-bottom: 20px;">
             <h1 style="color: #1a365d; font-size: 36px; margin-bottom: 10px; font-weight: 900; letter-spacing: 1px;">Global Morning Brief</h1>
             <p style="color: #4a5568; font-size: 16px; font-weight: 500;">
-                {datetime.date.today().strftime('%A, %B %d, %Y')} | 每日精选，洞见全球
+                {display_date_str} | 每日精选，洞见全球
             </p>
         </div>
 
@@ -239,7 +261,7 @@ def run():
         summary_html = get_news_summary(raw_news)
 
         # 推送到 Google Sheets
-        subject = f"Morning Brief: {datetime.date.today()}"
+        subject = f"Morning Brief: {today_str}"
         push_to_sheets("morning", subject, summary_html)
         print("😏已push到Google Sheet")
 
