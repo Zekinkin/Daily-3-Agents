@@ -29,7 +29,9 @@ display_date_str = target_date.strftime('%A, %B %d, %Y')
 # =========================================================
 
 # 历史记录文件 (防止发重复的)
-HISTORY_FILE = r"/Volumes/zekinssd/MYPROJECT/Daily 3 Agents/IETLS Speaking Materials/Speaking_Materials.json"
+BASE_DIR = os.getcwd()
+# ⚠️ 注意：这是一个新文件名，GitHub 会自动创建它，不要指向你的素材源文件！
+HISTORY_FILE = os.path.join(BASE_DIR, "evening_history.json")
 
 # 字数限制 (单位：英文单词)
 MIN_WORDS = 600
