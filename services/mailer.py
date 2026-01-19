@@ -41,7 +41,7 @@ def send_email(subject, html_content, to_emails=None):
         for recipient in to_emails:
             msg = MIMEMultipart()
             # 发件人显示设置
-            msg['From'] = formataddr(("AI News Agent", SENDER_EMAIL))
+            msg['From'] = formataddr(("Tony’s Daily Briefing", SENDER_EMAIL))
             msg['To'] = recipient
             msg['Subject'] = subject
 
