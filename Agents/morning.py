@@ -238,7 +238,7 @@ def get_news_summary(raw_text):
 
     try:
         response = client.chat.completions.create(
-            model="deepseek-chat", # 这种结构化总结用 V3 (chat) 足够了，速度快
+            model="deepseek-reasoner", # 这种结构化总结用 V3 (chat) 足够了，速度快
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
