@@ -3,6 +3,8 @@ from oauth2client.service_account import ServiceAccountCredentials
 import os
 import datetime
 import traceback
+import datetime
+from datetime import timedelta, timezone # 👈 确保加了这行
 
 # 1. 引入发信模块 (新增)
 from services.mailer import send_email 
@@ -41,7 +43,15 @@ def push_to_sheets(task_name, subject, html_content):
     if client:
         try:
             sheet = client.open_by_key(SHEET_ID).worksheet("Check")
-            today_str = datetime.date.today().strftime("%Y-%m-%d")
+            beijing_tz = timezone(timedelta(hours=8))
+            now_in_beijing = datetime.datetime.now(beijing_tz)
+        
+            if now_in_beijing.hour >= 18:
+                target_date = now_in_beijing.date() + timedelta(days=1)
+            else:
+                target_date = now_in_beijing.date()
+                
+            today_str = target_date.strftime("%Y-%m-%d")
             row_data = [today_str, task_name, subject, html_content, "Pending"]
             
             sheet.insert_row(row_data, 2)
