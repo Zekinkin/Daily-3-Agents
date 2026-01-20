@@ -42,9 +42,6 @@ DB_PATH = os.path.join(BASE_DIR, "IELTS Speaking Materials", "Speaking_Materials
 # 状态记录文件 (还是放在根目录)
 STATE_FILE = os.path.join(BASE_DIR, "ielts_state.json")
 
-# 状态记录文件 (自动生成，用来记进度)
-STATE_FILE = "ielts_state.json" 
-
 # 初始化 DeepSeek
 client = OpenAI(
     api_key=os.getenv("DEEPSEEK_API_KEY"),
@@ -89,8 +86,7 @@ def get_daily_topic(force_topic_id=None):
     
     # 4. 获取话题数据
     # 双重保险：防止 force_topic_id 输入过大报错
-    safe_index = current_index % total_topics 
-    topic_data = full_db[safe_index]
+    topic_data = full_db[current_index]
     
     # 5. 随机抽取 P3
     all_p3 = topic_data.get('part3_questions', [])
@@ -101,7 +97,7 @@ def get_daily_topic(force_topic_id=None):
 
     # 6. 更新并保存进度 (指向明天要发的下一个)
     # 明天就是 current_index + 1
-    next_index = safe_index + 1
+    next_index = current_index + 1
     
     new_state = {
         'current_index': next_index, 
@@ -112,8 +108,8 @@ def get_daily_topic(force_topic_id=None):
     with open(STATE_FILE, 'w') as f:
         json.dump(new_state, f, indent=2, ensure_ascii=False)
         
-    print(f"✅ 今日锁定话题: [ID {topic_data['id']}] {topic_data['topic_name']}")
-    print(f"📅 明日预定进度: Index {next_index} (ID {next_index + 1})")
+    print(f"✅ 今日锁定话题: [Index {current_index}] {topic_data['topic_name']}")
+    print(f"📅 进度已更新: 下次将发送 Index {next_index}")
     
     return topic_data, selected_p3
 
