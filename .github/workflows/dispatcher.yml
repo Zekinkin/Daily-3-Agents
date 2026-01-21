@@ -2,19 +2,17 @@ name: 🚚 智能分发与监控
 
 on:
   schedule:
-    # --- 定点发货 (Send Mode) ---
     # 1. 早报: 北京 08:00 (UTC 00:00)
     - cron: '0 0 * * *'
     # 2. 午报: 北京 12:00 (UTC 04:00)
     - cron: '0 4 * * *'
     # 3. 晚报: 北京 21:00 (UTC 13:00)
-    # (注: 这时昨晚生成的晚报正好发出去，同时 daily_tasks 也在生成明天的，互不冲突)
     - cron: '0 13 * * *'
 
-    # --- 持续监控 (Monitor Mode) ---
-    # 每小时的第 30 分运行一次，专门处理 Reject 重写
+    # 4. 监控: 每小时 30 分
     - cron: '30 * * * *'
 
+  # 允许手动强制触发
   workflow_dispatch:
 
 jobs:
@@ -36,30 +34,42 @@ jobs:
           MAIL_RECIPIENTS: ${{ secrets.MAIL_RECIPIENTS }}
         run: |
           HOUR=$(date +%H)
-          MINUTE=$(date +%M)
+          echo "⏰ 当前 UTC 小时: $HOUR"
+          echo "🕹️ 触发方式: ${{ github.event_name }}"
           
-          # 1. 判断是否是定点发送时间 (容差 +/- 5分钟)
-          # 注意：GitHub Action 启动可能有延迟，所以不需要精确到秒
-          
-          # UTC 00:00 -> 发 Morning
-          if [ "$HOUR" == "00" ]; then
-             echo "🚀 [时间到] 发送早报..."
+          # ==========================================
+          # 🚀 场景 1: 手动强制触发 (workflow_dispatch)
+          # ==========================================
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+             echo "🔥 手动模式：强制检查所有 Pending 任务..."
              python dispatcher.py --mode send --task morning
-          fi
-          
-          # UTC 04:00 -> 发 Afternoon
-          if [ "$HOUR" == "04" ]; then
-             echo "🚀 [时间到] 发送午报..."
              python dispatcher.py --mode send --task afternoon
-          fi
-          
-          # UTC 13:00 -> 发 Evening
-          if [ "$HOUR" == "13" ]; then
-             echo "🚀 [时间到] 发送晚报..."
              python dispatcher.py --mode send --task evening
+             
+          # ==========================================
+          # 🕒 场景 2: 定时自动触发 (宽容模式)
+          # ==========================================
+          else
+             # UTC 00:00 - 01:59 -> 发 Morning
+             # (防止 GitHub 排队导致拖到 01 点才运行)
+             if [ "$HOUR" == "00" ] || [ "$HOUR" == "01" ]; then
+                echo "🚀 [定时] 命中早报窗口 (00-01 UTC)..."
+                python dispatcher.py --mode send --task morning
+             fi
+             
+             # UTC 04:00 - 05:59 -> 发 Afternoon
+             if [ "$HOUR" == "04" ] || [ "$HOUR" == "05" ]; then
+                echo "🚀 [定时] 命中午报窗口 (04-05 UTC)..."
+                python dispatcher.py --mode send --task afternoon
+             fi
+             
+             # UTC 13:00 - 14:59 -> 发 Evening
+             if [ "$HOUR" == "13" ] || [ "$HOUR" == "14" ]; then
+                echo "🚀 [定时] 命中晚报窗口 (13-14 UTC)..."
+                python dispatcher.py --mode send --task evening
+             fi
           fi
           
-          # 2. 无论何时，都运行一次监控，处理 Reject
-          # 这样即使不是整点，你 Reject 之后，半小时内也会被重写
+          # 最后做一次巡逻
           echo "👀 [巡逻] 检查是否有拒绝任务..."
           python dispatcher.py --mode monitor
