@@ -72,10 +72,16 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 2. 智能添加 (关键修改：先检查文件是否存在)
+          # 🛑【关键修改】在提交前，必须先删除密钥文件！
+          # 防止 git add . 把它误传上去导致报错
+          if [ -f service_account.json ]; then
+            echo "🗑️ Deleting sensitive credentials..."
+            rm service_account.json
+          fi
+
+          # 2. 智能添加
           echo "📦 正在检查并添加文件..."
           
-          # 如果 ielts_state.json 存在，就强制添加；否则打印跳过
           if [ -f ielts_state.json ]; then
             echo "✅ Found ielts_state.json, adding..."
             git add -f ielts_state.json
@@ -83,7 +89,6 @@ jobs:
             echo "⚠️ ielts_state.json not found, skipping."
           fi
           
-          # 如果 evening_history.json 存在，就强制添加；否则打印跳过
           if [ -f evening_history.json ]; then
             echo "✅ Found evening_history.json, adding..."
             git add -f evening_history.json
@@ -91,11 +96,10 @@ jobs:
             echo "⚠️ evening_history.json not found, skipping."
           fi
           
-          # 3. 添加其他可能的变化 (比如 dispatcher 可能产生的日志等)
+          # 3. 添加其他可能的变化
           git add .
           
           # 4. 提交并推送
-          # 只有当暂存区有东西时才提交，防止报错 "nothing to commit"
           if git diff-index --quiet HEAD; then
             echo "🛑 No changes to commit."
           else
