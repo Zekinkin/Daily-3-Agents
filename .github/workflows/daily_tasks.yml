@@ -66,19 +66,21 @@ jobs:
 
       # 👇👇👇 修改点 3: 新增保存步骤 (Commit & Push)
       - name: 保存历史记录 (ielts_state & evening_history)
-        # 只有当前面的生成步骤成功了，才会执行保存
         if: success() 
         run: |
-          # 1. 配置 GitHub 机器人身份
+          # 1. 配置身份
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           
-          # 2. 添加所有变动 (包含 ielts_state.json 和 evening_history.json)
+          # 2. ⚠️ 强制添加状态文件 (关键修改！)
+          # 使用 -f 参数，即使它们在 .gitignore 里也能被强制提交
+          git add -f ielts_state.json
+          git add -f evening_history.json
+          
+          # 3. 添加其他可能的变化
           git add .
           
-          # 3. 提交变动 (如果没有文件变化，这步会跳过，不会报错)
-          # "|| echo..." 是为了防止因为没有新文件导致 Action 报错变红
-          git diff-index --quiet HEAD || git commit -m "🤖 Auto-update history logs [skip ci]"
-          
-          # 4. 推送到仓库
+          # 4. 提交并推送
+          # 检查暂存区是否有变化，有则提交
+          git diff-index --quiet HEAD || git commit -m "🤖 Update state files [skip ci]"
           git push
